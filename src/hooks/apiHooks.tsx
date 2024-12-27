@@ -24,13 +24,30 @@ export const textToVideoSearch = async (indexId: string, query: string, searchOp
     return response.json();
   };
 
-export const generateChapters = async (videoId: string) => {
-    const response = await fetch(`/api/generateChapters?videoId=${videoId}`);
-    if (!response.ok) {
-      throw new Error("Failed to search videos");
+export const summarize = async (videoId: string, type: string) => {
+    try {
+        const response = await fetch(`/api/summarize?videoId=${videoId}&type=${type}`);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Summarize failed:', {
+                status: response.status,
+                errorText,
+                videoId,
+                type
+            });
+            throw new Error(`Failed to summarize video: ${errorText}`);
+        }
+        return response.json();
+    } catch (error) {
+        console.error('Summarize error:', {
+            error,
+            message: error instanceof Error ? error.message : 'Unknown error',
+            videoId,
+            type
+        });
+        throw error;
     }
-    return response.json();
-  };
+};
 
 export const fetchVideos = async (page: number, indexId: string, pageLimit: number=9) => {
 	if (!indexId) {

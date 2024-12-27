@@ -1,3 +1,14 @@
+import { ButtonHTMLAttributes, ReactNode } from "react";
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  appearance?: "primary" | "default" | "danger" | "secondary" | "subtle";
+  rounded?: boolean;
+  loading?: boolean;
+  disableFocusStyle?: boolean;
+}
+
 export interface Video {
   _id: string;
   created_at: string;
