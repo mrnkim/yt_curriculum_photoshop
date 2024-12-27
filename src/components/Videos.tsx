@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react'; // 화살표 아이콘용
 import Video from './Video';
 import { Video as VideoType } from '@/types';
+import { usePlayer } from '@/contexts/PlayerContext';
 
 const indexId = process.env.NEXT_PUBLIC_INDEX_ID;
 
@@ -25,6 +26,11 @@ interface VideosProps {
 
 export function Videos({ videos, summaryResults }: VideosProps) {
   const [expandedVideos, setExpandedVideos] = useState<Set<string>>(new Set());
+  const { currentPlayerId, setCurrentPlayerId } = usePlayer();
+  const [playingChapter, setPlayingChapter] = useState<{
+    start?: number;
+    end?: number;
+  } | null>(null);
 
   const toggleVideo = (videoId: string) => {
     const newExpanded = new Set(expandedVideos);
@@ -40,6 +46,11 @@ export function Videos({ videos, summaryResults }: VideosProps) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  };
+
+  const handleChapterClick = (videoId: string, start: number, end: number) => {
+    setCurrentPlayerId(videoId);
+    setPlayingChapter({ start, end });
   };
 
   return (
@@ -71,9 +82,13 @@ export function Videos({ videos, summaryResults }: VideosProps) {
                   <Video
                     videoId={video._id}
                     indexId={indexId || ''}
-                    playing={false}
-                    onPlay={() => {}}
-                    showTitle={false}
+                    playing={currentPlayerId === video._id}
+                    startTime={currentPlayerId === video._id ? playingChapter?.start : undefined}
+                    endTime={currentPlayerId === video._id ? playingChapter?.end : undefined}
+                    onPlay={() => {
+                      setCurrentPlayerId(video._id);
+                      setPlayingChapter(null);
+                    }}
                   />
                 </div>
 
@@ -82,7 +97,11 @@ export function Videos({ videos, summaryResults }: VideosProps) {
                     <h3 className="font-semibold mb-3">Chapters</h3>
                     <div className="space-y-4 max-h-[500px] overflow-y-auto">
                       {summaryResults[video._id].chapters?.map((chapter, idx) => (
-                        <div key={idx} className="border-l-2 border-gray-200 pl-4">
+                        <div
+                          key={idx}
+                          className="border-l-2 border-gray-200 pl-4 cursor-pointer hover:bg-gray-50"
+                          onClick={() => handleChapterClick(video._id, chapter.start, chapter.end)}
+                        >
                           <div className="flex items-center gap-2">
                             <span className="text-sm font-medium text-gray-600">
                               {formatTimestamp(chapter.start)} - {formatTimestamp(chapter.end)}

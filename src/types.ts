@@ -42,6 +42,8 @@ export interface VideoProps {
   onPause?: () => void;
   showTitle?: boolean;
   videoDetails?: VideoDetails;
+  startTime?: number;
+  endTime?: number;
 }
 
 export interface VideoDetails {
