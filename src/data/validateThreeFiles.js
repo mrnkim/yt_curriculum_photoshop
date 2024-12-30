@@ -1,4 +1,3 @@
-import path from "path";
 import fs from "fs";
 
 // Helper function to extract IDs from allVideos.json

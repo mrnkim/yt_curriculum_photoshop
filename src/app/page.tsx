@@ -41,7 +41,7 @@ export default function Home() {
     return response.json();
   };
 
-  const { data: indexDetails } = useQuery<IndexDetails, Error>({
+  const { data: indexDetails, isLoading: isLoadingIndex } = useQuery<IndexDetails, Error>({
     queryKey: ["indexDetails", indexId],
     queryFn: () => {
       if (!indexId) throw new Error("Index ID is missing");
@@ -89,19 +89,26 @@ export default function Home() {
 
   // 모든 페이지의 비디오 데이터를 하나의 배열로 합치기
   const allVideos = data?.pages.flatMap((page) => page.data) ?? [];
-  console.log("🚀 > Home > allVideos=", allVideos)
 
   return (
     <PlayerProvider>
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8 row-start-2 items-center">
           <div className="flex flex-col gap-2 items-center text-center w-full">
-            <h1 className="text-2xl font-bold">
-              {indexDetails?.index_name} ({indexDetails?.video_count} videos)
-            </h1>
-            <p className="text-sm text-gray-500 text-center">
-              Total Duration: {indexDetails && formatDuration(indexDetails.total_duration)}
-            </p>
+            {isLoadingIndex ? (
+              <div className="flex justify-center w-full">
+                <LoadingSpinner />
+              </div>
+            ) : (
+              <>
+                <h1 className="text-2xl font-bold">
+                  {indexDetails?.index_name} ({indexDetails?.video_count} videos)
+                </h1>
+                <p className="text-sm text-gray-500 text-center">
+                  Total Duration: {indexDetails && formatDuration(indexDetails.total_duration)}
+                </p>
+              </>
+            )}
           </div>
 
           <div className="flex flex-col gap-2 items-center w-full">
@@ -135,12 +142,11 @@ export default function Home() {
               />
             ) : (
               <Curriculum
-                videos={allVideos}
                 summaryResults={summariesData ?? undefined}
               />
             )}
 
-            <div ref={ref} className="w-full py-4 text-center">
+            <div ref={ref} className="w-full py-4 text-center flex justify-center">
               {isFetchingNextPage && (
                 <LoadingSpinner />
               )}

@@ -1,19 +1,17 @@
 import { useState, useEffect, useCallback } from "react";
 import { CurriculumVideos } from "@/components/CurriculumVideos";
-import { Video as allVideos, VideosResponse } from "@/types";
+import { Video as allVideos } from "@/types";
 import { fetchVideos } from '@/hooks/apiHooks';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import LoadingSpinner from './LoadingSpinner';
 
 const indexId = process.env.NEXT_PUBLIC_INDEX_ID;
 
-type Video = string;
-
 type CurriculumSection = {
   id: number;
   title: string;
   description: string;
-  videos: Video[];
+  videos: string[];
   sections?: CurriculumSection[];
 };
 
@@ -22,23 +20,24 @@ type CurriculumData = {
   sections: CurriculumSection[];
 };
 
-type Props = {
-  summaryResults?: {
-    [key: string]: {
-      summary: string;
-      chapters: {
-        chapter_number: number;
-        start: number;
-        end: number;
-        chapter_title: string;
-        chapter_summary: string;
-      }[];
-    };
+interface SummaryData {
+  [key: string]: {
+    summary: string;
+    chapters: {
+      chapter_number: number;
+      start: number;
+      end: number;
+      chapter_title: string;
+      chapter_summary: string;
+    }[];
   };
-};
+}
 
+interface CurriculumProps {
+  summaryResults?: SummaryData;
+}
 
-export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
+export function Curriculum({ summaryResults }: CurriculumProps) {
   const [curriculum, setCurriculum] = useState<CurriculumData | null>(null);
   const [allFetchedVideos, setAllFetchedVideos] = useState<allVideos[]>([]);
   const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set());
@@ -108,30 +107,19 @@ export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
     }
 
     const sectionVideos = section.videos
-      .filter(videoId => {
-        if (!videoId) {
-          console.log(`Invalid video ID in section ${section.id}:`, videoId);
-          return false;
-        }
-        // 해당 섹션의 비디오 ID와 일치하는 비디오만 필터링
-        const found = allFetchedVideos.find(v => v._id === videoId);
-        console.log(`Video ${videoId} found:`, !!found);
-        return !!found;
-      })
       .map(videoId => {
         const originalVideo = allFetchedVideos.find(v => v._id === videoId);
-        if (!originalVideo) {
-          console.log(`Video not found for ID: ${videoId}`);
-          return null;
-        }
+        if (!originalVideo) return null;
+
         return {
           id: videoId,
-          title: (originalVideo?.system_metadata?.filename || videoId).replace(/\.mp4$/, ''),
-          summary: summaryResults?.[videoId]?.summary || '',
-          chapters: summaryResults?.[videoId]?.chapters || []
+          title: originalVideo.system_metadata?.filename.replace(/\.mp4$/, '') || videoId,
+          originalTitle: originalVideo.system_metadata?.filename,
+          summary: summaryResults?.[videoId]?.summary,
+          chapters: summaryResults?.[videoId]?.chapters
         };
       })
-      .filter(Boolean); // null 값 제거
+      .filter((video): video is NonNullable<typeof video> => video !== null);
 
     if (sectionVideos.length === 0) {
       console.debug(`No videos found for section ${section.id}: ${section.title}`);
@@ -140,7 +128,7 @@ export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
 
     return (
       <div key={section.id} className="section-videos">
-        <CurriculumVideos videos={sectionVideos}/>
+        <CurriculumVideos videos={sectionVideos} />
       </div>
     );
   }, [summaryResults, allFetchedVideos]);
@@ -163,7 +151,7 @@ export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
 
   return (
     <div className="curriculum-videos">
-      {curriculum?.sections.map((section, index) => {
+      {curriculum?.sections.map((section) => {
         const sectionVideoCount = section.videos.length +
           (section.sections?.reduce((acc, sub) => acc + sub.videos.length, 0) || 0);
         const isExpanded = expandedSections.has(section.id);
@@ -216,7 +204,11 @@ export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
           </div>
         );
       })}
-      {isLoading && <LoadingSpinner />}
+      {isLoading && (
+        <div className="flex justify-center items-center w-full py-4">
+          <LoadingSpinner />
+        </div>
+      )}
     </div>
   );
 }

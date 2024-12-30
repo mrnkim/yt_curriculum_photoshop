@@ -7,7 +7,7 @@ const uniqueVideos = new Set();
 // 중복된 비디오 ID를 저장할 객체 (ID: [섹션 번호들])
 const duplicateVideos = {};
 
-curriculum.sections.forEach((section, sectionIndex) => {
+curriculum.sections.forEach((section) => {
   section.videos.forEach((videoId) => {
     if (uniqueVideos.has(videoId)) {
       // 중복된 비디오 발견
