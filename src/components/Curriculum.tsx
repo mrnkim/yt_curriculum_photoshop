@@ -126,7 +126,7 @@ export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
         }
         return {
           id: videoId,
-          title: originalVideo?.system_metadata?.filename || videoId,
+          title: (originalVideo?.system_metadata?.filename || videoId).replace(/\.mp4$/, ''),
           summary: summaryResults?.[videoId]?.summary || '',
           chapters: summaryResults?.[videoId]?.chapters || []
         };
@@ -183,9 +183,9 @@ export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
                 {section.title} <span className="text-gray-500 text-lg">({sectionVideoCount} videos)</span>
               </h2>
             </div>
+            <p className="section-description text-gray-600 mb-2">{section.description}</p>
             {isExpanded && (
               <>
-                <p className="section-description text-gray-600 mb-4">{section.description}</p>
                 {section.sections?.map(subSection => {
                   const subSectionVideoCount = subSection.videos.length;
                   const isSubExpanded = expandedSections.has(subSection.id);
@@ -205,12 +205,8 @@ export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
                           {subSection.title} <span className="text-gray-500">({subSectionVideoCount} videos)</span>
                         </h3>
                       </div>
-                      {isSubExpanded && (
-                        <>
-                          <p className="subsection-description text-gray-600 mb-3">{subSection.description}</p>
-                          {renderSectionVideos(subSection)}
-                        </>
-                      )}
+                      <p className="subsection-description text-gray-600 mb-3">{subSection.description}</p>
+                      {isSubExpanded && renderSectionVideos(subSection)}
                     </div>
                   );
                 })}

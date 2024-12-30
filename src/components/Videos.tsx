@@ -62,7 +62,9 @@ export function Videos({ videos, summaryResults }: VideosProps) {
               onClick={() => toggleVideo(video._id)}
               className="w-full flex items-center justify-between hover:bg-gray-50 p-2 rounded"
             >
-              <span className="font-medium">{video.system_metadata.filename}</span>
+              <span className="font-medium">
+                {video.system_metadata.filename.replace(/\.mp4$/, '')}
+              </span>
               {expandedVideos.has(video._id) ? (
                 <ChevronUp className="w-5 h-5" />
               ) : (

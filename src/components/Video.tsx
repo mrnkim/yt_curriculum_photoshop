@@ -11,7 +11,7 @@ import { VideoProps, VideoDetails } from "@/types";
 import { fetchVideoDetails } from "@/hooks/apiHooks";
 import { usePlayer } from '@/contexts/PlayerContext';
 
-const Video: React.FC<VideoProps> = ({ videoId, indexId, showTitle = true, videoDetails: providedVideoDetails, playing = false, onPlay, startTime, endTime }) => {
+const Video: React.FC<VideoProps> = ({ videoId, indexId, videoDetails: providedVideoDetails, playing = false, onPlay, startTime, endTime }) => {
   const playerRef = useRef<ReactPlayer>(null);
   const { currentPlayerId, setCurrentPlayerId } = usePlayer();
 
@@ -114,13 +114,6 @@ const Video: React.FC<VideoProps> = ({ videoId, indexId, showTitle = true, video
               </div>
             </div>
           </div>
-          {showTitle && (
-            <div className="mt-2">
-              <p className={clsx("text-body3", "truncate", "text-grey-700")}>
-                {finalVideoDetails?.metadata?.filename}
-              </p>
-            </div>
-          )}
         </div>
       </Suspense>
     </ErrorBoundary>
