@@ -2,6 +2,7 @@
 
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import { Videos } from "@/components/Videos";
+import { Curriculum } from "@/components/Curriculum";
 import { IndexDetails, VideosResponse } from "@/types";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -22,10 +23,13 @@ type SummaryData = {
   };
 };
 
+type TabType = "all" | "curriculum";
+
 export default function Home() {
   const { ref, inView } = useInView();
 
   const [summariesData, setSummariesData] = useState<SummaryData | null>(null);
+  const [activeTab, setActiveTab] = useState<TabType>("all");
 
   useEffect(() => {
     import('@/data/summaries.json').then(m => setSummariesData(m.default));
@@ -62,8 +66,8 @@ export default function Home() {
     queryFn: ({ pageParam = 1 }) => fetchVideos({ pageParam: pageParam as number }),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
-      if (lastPage.page_info.page < lastPage.page_info.total_page) {
-        return lastPage.page_info.page + 1;
+      if (lastPage.page_info?.page < lastPage.page_info?.total_page) {
+        return lastPage.page_info?.page + 1;
       }
       return undefined;
     },
@@ -87,31 +91,61 @@ export default function Home() {
 
   return (
     <PlayerProvider>
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <div className="flex flex-col gap-2 items-center">
-          <h1 className="text-2xl font-bold">
-            {indexDetails?.index_name} ({indexDetails?.video_count} videos)
-          </h1>
-          <p className="text-sm text-gray-500 text-center">
-            Total Duration: {indexDetails && formatDuration(indexDetails.total_duration)}
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-2 items-center w-full">
-          <Videos
-            videos={allVideos}
-            summaryResults={summariesData ?? undefined}
-          />
-
-          <div ref={ref} className="w-full py-4 text-center">
-            {isFetchingNextPage && (
-              <div className="text-gray-500">Loading more videos...</div>
-            )}
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family:var(--font-geist-sans)]">
+        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+          <div className="flex flex-col gap-2 items-center">
+            <h1 className="text-2xl font-bold">
+              {indexDetails?.index_name} ({indexDetails?.video_count} videos)
+            </h1>
+            <p className="text-sm text-gray-500 text-center">
+              Total Duration: {indexDetails && formatDuration(indexDetails.total_duration)}
+            </p>
           </div>
-        </div>
-      </main>
-    </div>
+
+          <div className="flex flex-col gap-2 items-center w-full">
+            <div className="flex gap-4 mb-4">
+              <button
+                className={`px-4 py-2 rounded-lg ${
+                  activeTab === "all"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+                onClick={() => setActiveTab("all")}
+              >
+                All Videos
+              </button>
+              <button
+                className={`px-4 py-2 rounded-lg ${
+                  activeTab === "curriculum"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+                onClick={() => setActiveTab("curriculum")}
+              >
+                Curriculum
+              </button>
+            </div>
+
+            {activeTab === "all" ? (
+              <Videos
+                videos={allVideos}
+                summaryResults={summariesData ?? undefined}
+              />
+            ) : (
+              <Curriculum
+                videos={allVideos}
+                summaryResults={summariesData ?? undefined}
+              />
+            )}
+
+            <div ref={ref} className="w-full py-4 text-center">
+              {isFetchingNextPage && (
+                <div className="text-gray-500">Loading more videos...</div>
+              )}
+            </div>
+          </div>
+        </main>
+      </div>
     </PlayerProvider>
   );
 }

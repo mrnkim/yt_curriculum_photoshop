@@ -7,4 +7,4 @@ function countEntries(jsonFilePath) {
 }
 
 // 파일 경로를 지정하여 실행
-countEntries("src/data/summaries.json");
+countEntries("./summaries.json");
