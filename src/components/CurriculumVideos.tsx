@@ -17,6 +17,7 @@ interface CurriculumVideosProps {
   videos: {
     id: string;
     title: string;
+    originalTitle?: string;
     summary?: string;
     chapters?: Chapter[];
   }[];
@@ -28,7 +29,7 @@ interface CurriculumVideosProps {
   };
 }
 
-export function CurriculumVideos({ videos, summaryResults }: CurriculumVideosProps) {
+export function CurriculumVideos({ videos }: CurriculumVideosProps) {
   const [expandedVideos, setExpandedVideos] = useState<Set<string>>(new Set());
   const { currentPlayerId, setCurrentPlayerId } = usePlayer();
   const [playingChapter, setPlayingChapter] = useState<{
@@ -94,6 +95,7 @@ export function CurriculumVideos({ videos, summaryResults }: CurriculumVideosPro
                       setPlayingChapter(null);
                     }}
                   />
+
                 </div>
 
                 {video.chapters && (

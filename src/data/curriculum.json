@@ -3,987 +3,285 @@
   "sections": [
     {
       "id": 1,
-      "title": "Getting Started with Photoshop",
-      "description": "Essential basics and interface fundamentals",
+      "title": "Introduction to Photoshop",
+      "description": "Basic introduction and essential tools",
       "videos": [
-        {
-          "id": "676e26e4f6424f38826d5119",
-          "title": "Introduction to Photoshop Features and Smart Objects"
-        },
-        {
-          "id": "676e26e2f6424f38826d5115",
-          "title": "Basic Tools and Color Picking Techniques"
-        },
-        {
-          "id": "676e26d6f6424f38826d510d",
-          "title": "Creating and Editing New Documents"
-        },
-        {
-          "id": "67601f5f183e93cba5f0fbad",
-          "title": "Essential Settings and Workspace Setup"
-        },
-        {
-          "id": "67601f5f183e93cba5f0fbae",
-          "title": "Common Beginner Mistakes to Avoid"
-        },
-        {
-          "id": "676e26e1f6424f38826d5113",
-          "title": "Overscroll Feature and Workflow Efficiency"
-        },
-        {
-          "id": "67601f608eb48e4f74e62089",
-          "title": "24 Essential Photoshop Tricks"
-        },
-        {
-          "id": "67601f5f8eb48e4f74e62088",
-          "title": "Background Removal Techniques"
-        },
-        {
-          "id": "67601f628eb48e4f74e6208a",
-          "title": "Channel Introduction and Basic Features"
-        },
-        {
-          "id": "67601f658eb48e4f74e6208b",
-          "title": "Image Optimization Fundamentals"
-        },
-        {
-          "id": "67601f678eb48e4f74e6208c",
-          "title": "Basic Photo Enhancement"
-        },
-        {
-          "id": "67601f688eb48e4f74e6208d",
-          "title": "Group Photo Editing Basics"
-        },
-        {
-          "id": "67601f688eb48e4f74e6208e",
-          "title": "Hiker Photo Enhancement Tutorial"
-        },
-        {
-          "id": "67601f698eb48e4f74e6208f",
-          "title": "Interface Navigation and Tools"
-        },
-        {
-          "id": "67601fc38eb48e4f74e62143",
-          "title": "File Management Best Practices"
-        },
-        {
-          "id": "67601fc48eb48e4f74e62144",
-          "title": "Understanding Resolution and Image Size"
-        }
+        "67601f5f183e93cba5f0fbad",
+        "67601f5f183e93cba5f0fbae",
+        "67601f5f8eb48e4f74e62088",
+        "676020798eb48e4f74e620a1",
+        "67602078183e93cba5f0fbc3",
+        "6764f629f6424f38826d4cae",
+        "6764f629f6424f38826d4caf",
+        "6764f626872e476c53537ca9",
+        "6764f624f6424f38826d4caa",
+        "67694b29872e476c53537f7a",
+        "67694b28872e476c53537f79",
+        "67694b1df6424f38826d4f85",
+        "676e26e4f6424f38826d5119",
+        "676e26e2f6424f38826d5115",
+        "676e26d6f6424f38826d510d",
+        "6764f636872e476c53537cb1",
+        "6764f62f872e476c53537cae",
+        "67601f608eb48e4f74e62089",
+        "67601f658eb48e4f74e6208b",
+        "67601f678eb48e4f74e6208c",
+        "6760200a183e93cba5f0fbb9",
+        "6760200d183e93cba5f0fbbd",
+        "67694b0d872e476c53537f69",
+        "67679d17872e476c53537ee5",
+        "67679d14f6424f38826d4efc",
+        "67679d0e872e476c53537ee2",
+        "67679d0e872e476c53537ee3",
+        "67601f6d183e93cba5f0fbb5",
+        "67601f6d183e93cba5f0fbb6",
+        "67679d13f6424f38826d4efb",
+        "67679d11f6424f38826d4efa",
+        "676020028eb48e4f74e62097",
+        "67601f6a8eb48e4f74e62091"
       ]
     },
     {
       "id": 2,
-      "title": "Basic Photo Editing",
-      "description": "Fundamental editing techniques and adjustments",
+      "title": "Advanced Editing Techniques",
+      "description": "Advanced tools and techniques for editing",
       "videos": [
-        {
-          "id": "676e26e3f6424f38826d5117",
-          "title": "Solar Curve and Basic Adjustments"
-        },
-        {
-          "id": "676e26dff6424f38826d5111",
-          "title": "Basic Color Correction Techniques"
-        },
-        {
-          "id": "676e26e0872e476c53538161",
-          "title": "Portrait Photo Enhancement Basics"
-        },
-        {
-          "id": "676e26d3f6424f38826d510b",
-          "title": "Creating Seamless Texture Patterns"
-        },
-        {
-          "id": "676e26d3f6424f38826d510c",
-          "title": "Digital Art Creation"
-        },
-        {
-          "id": "67601f6a8eb48e4f74e62090",
-          "title": "Basic Selection Techniques"
-        },
-        {
-          "id": "67601f6a8eb48e4f74e62091",
-          "title": "Smooth and Sharp Selections"
-        },
-        {
-          "id": "67601f6b8eb48e4f74e62092",
-          "title": "Basic Layer Management"
-        },
-        {
-          "id": "67601f6b8eb48e4f74e62093",
-          "title": "Color Balance and Exposure"
-        },
-        {
-          "id": "67601f6c8eb48e4f74e62094",
-          "title": "Basic Photo Retouching"
-        },
-        {
-          "id": "67601f6c8eb48e4f74e62095",
-          "title": "Image Size and Resolution"
-        },
-        {
-          "id": "67601f6d8eb48e4f74e62096",
-          "title": "Basic Filter Effects"
-        },
-        {
-          "id": "67601f6d8eb48e4f74e62097",
-          "title": "Cropping and Straightening"
-        },
-        {
-          "id": "67601f6e8eb48e4f74e62098",
-          "title": "Basic Healing and Cloning"
-        }
+        "676e26e3f6424f38826d5116",
+        "676e26e2f6424f38826d5114",
+        "676e26d6f6424f38826d510e",
+        "6764f61cf6424f38826d4ca5",
+        "6764f61bf6424f38826d4ca4",
+        "6764f619872e476c53537ca3",
+        "67694c4f872e476c53537f7d",
+        "67694b2b872e476c53537f7b",
+        "67694b27872e476c53537f78",
+        "67694b26f6424f38826d4f8c",
+        "67694b21f6424f38826d4f88",
+        "67694b1f872e476c53537f75",
+        "67694b1ef6424f38826d4f86",
+        "67694b1df6424f38826d4f84",
+        "67694b1cf6424f38826d4f83",
+        "67694b1bf6424f38826d4f82",
+        "67694b1af6424f38826d4f81",
+        "67694b19f6424f38826d4f80",
+        "67694b18f6424f38826d4f7f",
+        "67694b17f6424f38826d4f7e",
+        "67694b14f6424f38826d4f7c",
+        "67694b13f6424f38826d4f7b",
+        "67694b12f6424f38826d4f7a",
+        "6764f62cf6424f38826d4cb1",
+        "6764f61d872e476c53537ca5",
+        "676e26d1f6424f38826d510a",
+        "67679d10f6424f38826d4ef8",
+        "6764f83a872e476c53537cbe",
+        "6764f839f6424f38826d4cc1",
+        "676e26e1f6424f38826d5113",
+        "6764f640f6424f38826d4cbc",
+        "6764f63ff6424f38826d4cbb",
+        "6764f63c872e476c53537cb6"
       ]
     },
     {
       "id": 3,
-      "title": "Advanced Layer Techniques",
-      "description": "Mastering layers, masks, and blending modes",
+      "title": "Portrait & Beauty Retouching",
+      "description": "Professional portrait enhancement techniques",
       "videos": [
-        {
-          "id": "676e26d6872e476c5353815e",
-          "title": "Advanced Hair Selection and Masking"
-        },
-        {
-          "id": "676e26d2872e476c5353815c",
-          "title": "Layer Masking Techniques"
-        },
-        {
-          "id": "676e26d2872e476c5353815d",
-          "title": "Blending Modes Mastery"
-        },
-        {
-          "id": "67601f6e8eb48e4f74e62099",
-          "title": "Advanced Layer Styles"
-        },
-        {
-          "id": "67601f6f8eb48e4f74e6209a",
-          "title": "Smart Objects and Filters"
-        },
-        {
-          "id": "67601f6f8eb48e4f74e6209b",
-          "title": "Layer Mask Refinements"
-        },
-        {
-          "id": "67601f708eb48e4f74e6209c",
-          "title": "Advanced Blend If Settings"
-        },
-        {
-          "id": "67601f708eb48e4f74e6209d",
-          "title": "Layer Groups Organization"
-        },
-        {
-          "id": "67601f718eb48e4f74e6209e",
-          "title": "Adjustment Layer Techniques"
-        },
-        {
-          "id": "67601f718eb48e4f74e6209f",
-          "title": "Layer Comps Usage"
-        },
-        {
-          "id": "67601f728eb48e4f74e620a0",
-          "title": "Advanced Opacity Techniques"
-        },
-        {
-          "id": "67601f728eb48e4f74e620a1",
-          "title": "Fill vs Opacity"
-        },
-        {
-          "id": "67601f738eb48e4f74e620a2",
-          "title": "Advanced Masking Effects"
-        },
-        {
-          "id": "67601f738eb48e4f74e620a3",
-          "title": "Layer Style Combinations"
-        },
-        {
-          "id": "67601fc48eb48e4f74e62145",
-          "title": "Advanced Layer Composition Techniques"
-        },
-        {
-          "id": "67601fc58eb48e4f74e62146",
-          "title": "Non-destructive Editing Workflow"
-        }
+        "676e26e0872e476c53538161",
+        "676e26e0f6424f38826d5112",
+        "676e26dff6424f38826d5111",
+        "676e26d6872e476c5353815e",
+        "6764f637f6424f38826d4cb8",
+        "6764f634872e476c53537cb0",
+        "6764f62e872e476c53537cad",
+        "6764f626872e476c53537ca8",
+        "67694c48f6424f38826d4f92",
+        "67694b25872e476c53537f77",
+        "67694b23872e476c53537f76",
+        "67694b21f6424f38826d4f87",
+        "67694b1c872e476c53537f72",
+        "67694b15872e476c53537f6d",
+        "67694b13872e476c53537f6c",
+        "67694b10f6424f38826d4f78",
+        "67694b0ef6424f38826d4f76",
+        "67679df7f6424f38826d4f0f",
+        "67679df6f6424f38826d4f0e",
+        "67679da9872e476c53537ef4",
+        "67679d2c872e476c53537ef0",
+        "67679d27f6424f38826d4f0a",
+        "67679d24872e476c53537eec",
+        "67679d23f6424f38826d4f07",
+        "6760200e183e93cba5f0fbbe",
+        "67679daa872e476c53537ef5",
+        "6764f63bf6424f38826d4cb9",
+        "67601f6d8eb48e4f74e62094",
+        "67601f6d8eb48e4f74e62095"
       ]
     },
     {
       "id": 4,
-      "title": "Portrait & Beauty Retouching",
-      "description": "Professional portrait enhancement techniques",
+      "title": "Creative Effects",
+      "description": "Artistic effects and creative techniques",
       "videos": [
-        {
-          "id": "676e26e0f6424f38826d5112",
-          "title": "Advanced Portrait Editing Workflow"
-        },
-        {
-          "id": "676e26d3f6424f38826d510b",
-          "title": "Professional Beauty Retouching"
-        },
-        {
-          "id": "67601f748eb48e4f74e620a4",
-          "title": "Skin Retouching Techniques"
-        },
-        {
-          "id": "67601f748eb48e4f74e620a5",
-          "title": "Eye Enhancement Methods"
-        },
-        {
-          "id": "67601f758eb48e4f74e620a6",
-          "title": "Hair Retouching"
-        },
-        {
-          "id": "67601f758eb48e4f74e620a7",
-          "title": "Teeth Whitening"
-        },
-        {
-          "id": "67601f768eb48e4f74e620a8",
-          "title": "Makeup Enhancement"
-        },
-        {
-          "id": "67601f768eb48e4f74e620a9",
-          "title": "Portrait Color Grading"
-        },
-        {
-          "id": "67601f778eb48e4f74e620aa",
-          "title": "Face Sculpting"
-        },
-        {
-          "id": "67601f778eb48e4f74e620ab",
-          "title": "Body Retouching"
-        },
-        {
-          "id": "67601f788eb48e4f74e620ac",
-          "title": "Portrait Lighting Effects"
-        },
-        {
-          "id": "67601f788eb48e4f74e620ad",
-          "title": "Skin Tone Correction"
-        },
-        {
-          "id": "67601f798eb48e4f74e620ae",
-          "title": "Advanced Portrait Masking"
-        },
-        {
-          "id": "67601f798eb48e4f74e620af",
-          "title": "Portrait Background Enhancement"
-        }
+        "676e26ddf6424f38826d5110",
+        "676e26d8f6424f38826d510f",
+        "676e26dd872e476c5353815f",
+        "6764f62af6424f38826d4cb0",
+        "6764f61c872e476c53537ca4",
+        "67694b29f6424f38826d4f8f",
+        "67694b27f6424f38826d4f8d",
+        "67694b26f6424f38826d4f8b",
+        "67694b1b872e476c53537f71",
+        "67694b19872e476c53537f6f",
+        "67694b15872e476c53537f6e",
+        "67679e19872e476c53537ef7",
+        "67679df5872e476c53537ef6",
+        "67679da8872e476c53537ef2",
+        "67679da8872e476c53537ef3",
+        "67679d2c872e476c53537ef1",
+        "67679d2bf6424f38826d4f0b",
+        "67679d2a872e476c53537eef",
+        "67679d27872e476c53537eee",
+        "67679d25f6424f38826d4f09",
+        "67679d23872e476c53537eeb",
+        "67679d21872e476c53537eea",
+        "67602010183e93cba5f0fbbf",
+        "6760200b183e93cba5f0fbbc",
+        "67601f6c183e93cba5f0fbb3",
+        "67679d1b872e476c53537ee7",
+        "67679d1b872e476c53537ee8",
+        "6764f63f872e476c53537cb7",
+        "67601f69183e93cba5f0fbb1"
       ]
     },
     {
       "id": 5,
-      "title": "Landscape & Nature Photography",
-      "description": "Enhance outdoor and nature photographs",
+      "title": "Color Correction & Enhancement",
+      "description": "Advanced color manipulation techniques",
       "videos": [
-        {
-          "id": "67601f6c183e93cba5f0fbb4",
-          "title": "Dramatic Sky Enhancement"
-        },
-        {
-          "id": "676e26dd872e476c5353815f",
-          "title": "Long Exposure Effects"
-        },
-        {
-          "id": "67601f7a8eb48e4f74e620b0",
-          "title": "Nature Color Enhancement"
-        },
-        {
-          "id": "67601f7a8eb48e4f74e620b1",
-          "title": "Landscape Sharpening"
-        },
-        {
-          "id": "67601f7b8eb48e4f74e620b2",
-          "title": "Water Effect Enhancement"
-        },
-        {
-          "id": "67601f7b8eb48e4f74e620b3",
-          "title": "Forest Scene Editing"
-        },
-        {
-          "id": "67601f7c8eb48e4f74e620b4",
-          "title": "Mountain Photography"
-        },
-        {
-          "id": "67601f7c8eb48e4f74e620b5",
-          "title": "Sunset/Sunrise Enhancement"
-        },
-        {
-          "id": "67601f7d8eb48e4f74e620b6",
-          "title": "Weather Effect Creation"
-        },
-        {
-          "id": "67601f7d8eb48e4f74e620b7",
-          "title": "HDR Landscape Effects"
-        },
-        {
-          "id": "67601f7e8eb48e4f74e620b8",
-          "title": "Panorama Stitching"
-        },
-        {
-          "id": "67601f7e8eb48e4f74e620b9",
-          "title": "Night Photography Editing"
-        },
-        {
-          "id": "67601f7f8eb48e4f74e620ba",
-          "title": "Seasonal Photo Enhancement"
-        },
-        {
-          "id": "67601f7f8eb48e4f74e620bb",
-          "title": "Nature Detail Enhancement"
-        }
+        "676e26e3f6424f38826d5117",
+        "6764f634f6424f38826d4cb4",
+        "6764f634f6424f38826d4cb5",
+        "67694b2df6424f38826d4f91",
+        "67694b2b872e476c53537f7c",
+        "67694b2af6424f38826d4f90",
+        "67694b29f6424f38826d4f8e",
+        "67694b24f6424f38826d4f89",
+        "67694b1e872e476c53537f74",
+        "67694b1d872e476c53537f73",
+        "67694b14f6424f38826d4f7d",
+        "67694b11f6424f38826d4f79",
+        "67694b0ff6424f38826d4f77",
+        "67679da6f6424f38826d4f0c",
+        "67679d26872e476c53537eed",
+        "67679d24f6424f38826d4f08",
+        "67679d23f6424f38826d4f06",
+        "67679d20872e476c53537ee9",
+        "67679d1ff6424f38826d4f03",
+        "67679d1df6424f38826d4f02",
+        "67679d1cf6424f38826d4f01",
+        "6760200b183e93cba5f0fbbb",
+        "67601f6c183e93cba5f0fbb4",
+        "67601f6a183e93cba5f0fbb2",
+        "676e26d2872e476c5353815c",
+        "67679d10f6424f38826d4ef7",
+        "67679d10f6424f38826d4ef9",
+        "6764f63c872e476c53537cb5"
       ]
     },
     {
       "id": 6,
-      "title": "Creative Effects & Artistry",
-      "description": "Artistic effects and creative techniques",
+      "title": "Workflow Optimization",
+      "description": "Improve your Photoshop workflow",
       "videos": [
-        {
-          "id": "676e26ddf6424f38826d5110",
-          "title": "Transform Photos into Paintings"
-        },
-        {
-          "id": "676e26d8f6424f38826d510f",
-          "title": "Dramatic Motorcycle Image Effect"
-        },
-        {
-          "id": "67601f808eb48e4f74e620bc",
-          "title": "Double Exposure Effects"
-        },
-        {
-          "id": "67601f808eb48e4f74e620bd",
-          "title": "Watercolor Effect Creation"
-        },
-        {
-          "id": "67601f818eb48e4f74e620be",
-          "title": "Sketch Effect Techniques"
-        },
-        {
-          "id": "67601f818eb48e4f74e620bf",
-          "title": "Comic Book Style Effects"
-        },
-        {
-          "id": "67601f828eb48e4f74e620c0",
-          "title": "Glitch Art Effects"
-        },
-        {
-          "id": "67601f828eb48e4f74e620c1",
-          "title": "Dispersion Effects"
-        },
-        {
-          "id": "67601f838eb48e4f74e620c2",
-          "title": "Low Poly Art Creation"
-        },
-        {
-          "id": "67601f838eb48e4f74e620c3",
-          "title": "Duotone Color Effects"
-        },
-        {
-          "id": "67601f848eb48e4f74e620c4",
-          "title": "Vintage Photo Effects"
-        },
-        {
-          "id": "67601f848eb48e4f74e620c5",
-          "title": "Abstract Art Creation"
-        },
-        {
-          "id": "67601f858eb48e4f74e620c6",
-          "title": "Neon Light Effects"
-        },
-        {
-          "id": "67601f858eb48e4f74e620c7",
-          "title": "3D Text Effects"
-        }
+        "676e26e3f6424f38826d5118",
+        "676e26de872e476c53538160",
+        "6764f636f6424f38826d4cb7",
+        "6764f635f6424f38826d4cb6",
+        "6764f633872e476c53537caf",
+        "6764f630f6424f38826d4cb3",
+        "6764f62ff6424f38826d4cb2",
+        "67694b10872e476c53537f6a",
+        "67679da6f6424f38826d4f0d",
+        "67679d23f6424f38826d4f05",
+        "67679d1bf6424f38826d4f00",
+        "67679d1af6424f38826d4eff",
+        "67679d19872e476c53537ee6",
+        "67679d17f6424f38826d4efd",
+        "67679d13872e476c53537ee4",
+        "67679d22f6424f38826d4f04",
+        "67679d19f6424f38826d4efe",
+        "67601f6b8eb48e4f74e62092",
+        "67601f6b8eb48e4f74e62093"
       ]
     },
     {
       "id": 7,
-      "title": "Color Grading & Correction",
-      "description": "Advanced color manipulation techniques",
+      "title": "Pattern & Texture Creation",
+      "description": "Create and work with patterns and textures",
       "videos": [
-        {
-          "id": "676e26e3f6424f38826d5116",
-          "title": "Advanced Color Grading"
-        },
-        {
-          "id": "67601f868eb48e4f74e620c8",
-          "title": "Cinema Color Grading"
-        },
-        {
-          "id": "67601f868eb48e4f74e620c9",
-          "title": "Color Theory Application"
-        },
-        {
-          "id": "67601f878eb48e4f74e620ca",
-          "title": "Split Toning Techniques"
-        },
-        {
-          "id": "67601f878eb48e4f74e620cb",
-          "title": "Color Balance Mastery"
-        },
-        {
-          "id": "67601f888eb48e4f74e620cc",
-          "title": "Selective Color Adjustment"
-        },
-        {
-          "id": "67601f888eb48e4f74e620cd",
-          "title": "Color Lookup Tables"
-        },
-        {
-          "id": "67601f898eb48e4f74e620ce",
-          "title": "Advanced HSL Adjustments"
-        },
-        {
-          "id": "67601f898eb48e4f74e620cf",
-          "title": "Color Range Masking"
-        },
-        {
-          "id": "67601f8a8eb48e4f74e620d0",
-          "title": "Color Harmony Creation"
-        },
-        {
-          "id": "67601f8a8eb48e4f74e620d1",
-          "title": "Mood Color Grading"
-        },
-        {
-          "id": "67601f8b8eb48e4f74e620d2",
-          "title": "Season-Based Color Grading"
-        },
-        {
-          "id": "67601f8b8eb48e4f74e620d3",
-          "title": "Color Correction Workflow"
-        },
-        {
-          "id": "67601f8c8eb48e4f74e620d4",
-          "title": "Advanced Color Matching"
-        },
-        {
-          "id": "67601fc58eb48e4f74e62147",
-          "title": "Advanced Color Correction Workflow"
-        },
-        {
-          "id": "67601fc68eb48e4f74e62148",
-          "title": "Professional Color Management Systems"
-        }
+        "676e26d3f6424f38826d510b",
+        "6764f629872e476c53537cab",
+        "6764f628f6424f38826d4cad",
+        "6764f627f6424f38826d4cac",
+        "6764f622872e476c53537ca7",
+        "6764f621872e476c53537ca6",
+        "6764f621f6424f38826d4ca8",
+        "6764f61ff6424f38826d4ca6",
+        "6764f61ff6424f38826d4ca7",
+        "6764f618f6424f38826d4ca2",
+        "6764f618f6424f38826d4ca3",
+        "6760207a8eb48e4f74e620a3",
+        "676020798eb48e4f74e620a2",
+        "67602077183e93cba5f0fbc2",
+        "676020768eb48e4f74e620a0",
+        "67602074183e93cba5f0fbc1",
+        "676020738eb48e4f74e6209f",
+        "676020118eb48e4f74e6209e",
+        "67602010183e93cba5f0fbc0",
+        "676020108eb48e4f74e6209c",
+        "676020108eb48e4f74e6209d",
+        "6760200e8eb48e4f74e6209a",
+        "6760200e8eb48e4f74e6209b",
+        "6760200a8eb48e4f74e62099",
+        "676020078eb48e4f74e62098",
+        "67679d0ff6424f38826d4ef6",
+        "6764f62c872e476c53537cac",
+        "6764f626872e476c53537caa",
+        "6764f626f6424f38826d4cab"
       ]
     },
     {
       "id": 8,
-      "title": "Graphic Design Elements",
-      "description": "Typography, patterns, and design principles",
+      "title": "Advanced Photography Effects",
+      "description": "Professional photography enhancement techniques",
       "videos": [
-        {
-          "id": "67601f8c8eb48e4f74e620d5",
-          "title": "Typography Fundamentals"
-        },
-        {
-          "id": "67601f8d8eb48e4f74e620d6",
-          "title": "Pattern Design Creation"
-        },
-        {
-          "id": "67601f8d8eb48e4f74e620d7",
-          "title": "Logo Design Techniques"
-        },
-        {
-          "id": "67601f8e8eb48e4f74e620d8",
-          "title": "Icon Design"
-        },
-        {
-          "id": "67601f8e8eb48e4f74e620d9",
-          "title": "Poster Design"
-        },
-        {
-          "id": "67601f8f8eb48e4f74e620da",
-          "title": "Business Card Design"
-        },
-        {
-          "id": "67601f8f8eb48e4f74e620db",
-          "title": "Social Media Graphics"
-        },
-        {
-          "id": "67601f908eb48e4f74e620dc",
-          "title": "Banner Design"
-        },
-        {
-          "id": "67601f908eb48e4f74e620dd",
-          "title": "Package Design"
-        },
-        {
-          "id": "67601f918eb48e4f74e620de",
-          "title": "Book Cover Design"
-        },
-        {
-          "id": "67601f918eb48e4f74e620df",
-          "title": "Magazine Layout"
-        },
-        {
-          "id": "67601f928eb48e4f74e620e0",
-          "title": "Infographic Design"
-        },
-        {
-          "id": "67601f928eb48e4f74e620e1",
-          "title": "Brand Identity Design"
-        },
-        {
-          "id": "67601f938eb48e4f74e620e2",
-          "title": "Vector Graphics"
-        }
+        "676e26d2872e476c5353815d",
+        "6764f63bf6424f38826d4cba",
+        "6764f63a872e476c53537cb3",
+        "6764f63a872e476c53537cb4",
+        "6764f637872e476c53537cb2",
+        "67601f688eb48e4f74e6208d",
+        "67601f688eb48e4f74e6208e",
+        "67601f67183e93cba5f0fbaf",
+        "6764f833872e476c53537cbd",
+        "6760200a183e93cba5f0fbba",
+        "67602006183e93cba5f0fbb7",
+        "67601f6a8eb48e4f74e6208f"
       ]
     },
     {
       "id": 9,
-      "title": "Photo Compositing",
-      "description": "Create complex photo compositions",
+      "title": "Miscellaneous Techniques",
+      "description": "Additional Photoshop tutorials and techniques",
       "videos": [
-        {
-          "id": "676e26e2f6424f38826d5114",
-          "title": "Advanced Compositing Techniques"
-        },
-        {
-          "id": "67601f938eb48e4f74e620e3",
-          "title": "Multi-Layer Compositing"
-        },
-        {
-          "id": "67601f948eb48e4f74e620e4",
-          "title": "Photo Manipulation Art"
-        },
-        {
-          "id": "67601f948eb48e4f74e620e5",
-          "title": "Fantasy Scene Creation"
-        },
-        {
-          "id": "67601f958eb48e4f74e620e6",
-          "title": "Surreal Compositing"
-        },
-        {
-          "id": "67601f958eb48e4f74e620e7",
-          "title": "Product Compositing"
-        },
-        {
-          "id": "67601f968eb48e4f74e620e8",
-          "title": "Architecture Compositing"
-        },
-        {
-          "id": "67601f968eb48e4f74e620e9",
-          "title": "Nature Compositing"
-        },
-        {
-          "id": "67601f978eb48e4f74e620ea",
-          "title": "Portrait Compositing"
-        },
-        {
-          "id": "67601f978eb48e4f74e620eb",
-          "title": "Background Replacement"
-        },
-        {
-          "id": "67601f988eb48e4f74e620ec",
-          "title": "Sky Replacement"
-        },
-        {
-          "id": "67601f988eb48e4f74e620ed",
-          "title": "Texture Compositing"
-        },
-        {
-          "id": "67601f998eb48e4f74e620ee",
-          "title": "Light Effects Compositing"
-        },
-        {
-          "id": "67601f998eb48e4f74e620ef",
-          "title": "Advanced Masking Techniques"
-        },
-        {
-          "id": "67601fc68eb48e4f74e62149",
-          "title": "Advanced Compositing Workflows"
-        },
-        {
-          "id": "67601fc78eb48e4f74e62150",
-          "title": "Professional Masking Techniques"
-        }
-      ]
-    },
-    {
-      "id": 10,
-      "title": "Automation & Workflow",
-      "description": "Optimize your workflow with actions and scripts",
-      "videos": [
-        {
-          "id": "676e26e3f6424f38826d5118",
-          "title": "Voice Commands in Photoshop"
-        },
-        {
-          "id": "67601f9a8eb48e4f74e620f0",
-          "title": "Action Creation"
-        },
-        {
-          "id": "67601f9a8eb48e4f74e620f1",
-          "title": "Batch Processing"
-        },
-        {
-          "id": "67601f9b8eb48e4f74e620f2",
-          "title": "Workflow Optimization"
-        },
-        {
-          "id": "67601f9b8eb48e4f74e620f3",
-          "title": "Keyboard Shortcuts"
-        },
-        {
-          "id": "67601f9c8eb48e4f74e620f4",
-          "title": "Droplets Creation"
-        },
-        {
-          "id": "67601f9c8eb48e4f74e620f5",
-          "title": "Scripts Basics"
-        },
-        {
-          "id": "67601f9d8eb48e4f74e620f6",
-          "title": "File Management"
-        },
-        {
-          "id": "67601f9d8eb48e4f74e620f7",
-          "title": "Workspace Setup"
-        },
-        {
-          "id": "67601f9e8eb48e4f74e620f8",
-          "title": "Export Settings"
-        },
-        {
-          "id": "67601f9e8eb48e4f74e620f9",
-          "title": "Presets Management"
-        },
-        {
-          "id": "67601f9f8eb48e4f74e620fa",
-          "title": "Color Management"
-        },
-        {
-          "id": "67601f9f8eb48e4f74e620fb",
-          "title": "Plugin Management"
-        },
-        {
-          "id": "67601fa08eb48e4f74e620fc",
-          "title": "Project Organization"
-        },
-        {
-          "id": "67601fc78eb48e4f74e62151",
-          "title": "Advanced Automation Techniques"
-        },
-        {
-          "id": "67601fc88eb48e4f74e62152",
-          "title": "Professional Workflow Integration"
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "title": "Social Media & Web Graphics",
-      "description": "Optimize images for digital platforms",
-      "videos": [
-        {
-          "id": "67601fa08eb48e4f74e620fd",
-          "title": "Social Media Size Guide"
-        },
-        {
-          "id": "67601fa18eb48e4f74e620fe",
-          "title": "Instagram Post Design"
-        },
-        {
-          "id": "67601fa18eb48e4f74e620ff",
-          "title": "Facebook Cover Design"
-        },
-        {
-          "id": "67601fa28eb48e4f74e62100",
-          "title": "Twitter Graphics"
-        },
-        {
-          "id": "67601fa28eb48e4f74e62101",
-          "title": "YouTube Thumbnails"
-        },
-        {
-          "id": "67601fa38eb48e4f74e62102",
-          "title": "Web Banner Creation"
-        },
-        {
-          "id": "67601fa38eb48e4f74e62103",
-          "title": "Email Graphics"
-        },
-        {
-          "id": "67601fa48eb48e4f74e62104",
-          "title": "Story Templates"
-        },
-        {
-          "id": "67601fa48eb48e4f74e62105",
-          "title": "Carousel Post Design"
-        },
-        {
-          "id": "67601fa58eb48e4f74e62106",
-          "title": "Profile Picture Editing"
-        },
-        {
-          "id": "67601fa58eb48e4f74e62107",
-          "title": "Web Asset Optimization"
-        },
-        {
-          "id": "67601fa68eb48e4f74e62108",
-          "title": "Responsive Design"
-        },
-        {
-          "id": "67601fa68eb48e4f74e62109",
-          "title": "Social Media Filters"
-        },
-        {
-          "id": "67601fa78eb48e4f74e6210a",
-          "title": "Digital Ad Design"
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "title": "Product & Commercial Photography",
-      "description": "Professional product photo editing",
-      "videos": [
-        {
-          "id": "67601fa78eb48e4f74e6210b",
-          "title": "Product Photography Basics"
-        },
-        {
-          "id": "67601fa88eb48e4f74e6210c",
-          "title": "E-commerce Photography"
-        },
-        {
-          "id": "67601fa88eb48e4f74e6210d",
-          "title": "Product Retouching"
-        },
-        {
-          "id": "67601fa98eb48e4f74e6210e",
-          "title": "White Background Setup"
-        },
-        {
-          "id": "67601fa98eb48e4f74e6210f",
-          "title": "Jewelry Photography"
-        },
-        {
-          "id": "67601faa8eb48e4f74e62110",
-          "title": "Food Photography"
-        },
-        {
-          "id": "67601faa8eb48e4f74e62111",
-          "title": "Fashion Photography"
-        },
-        {
-          "id": "67601fab8eb48e4f74e62112",
-          "title": "Product Packaging"
-        },
-        {
-          "id": "67601fab8eb48e4f74e62113",
-          "title": "360 Product Views"
-        },
-        {
-          "id": "67601fac8eb48e4f74e62114",
-          "title": "Lifestyle Product Photos"
-        },
-        {
-          "id": "67601fac8eb48e4f74e62115",
-          "title": "Product Shadows"
-        },
-        {
-          "id": "67601fad8eb48e4f74e62116",
-          "title": "Glass Product Editing"
-        },
-        {
-          "id": "67601fad8eb48e4f74e62117",
-          "title": "Metal Product Editing"
-        },
-        {
-          "id": "67601fae8eb48e4f74e62118",
-          "title": "Product Color Variants"
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "title": "Special Effects & Manipulation",
-      "description": "Create stunning visual effects",
-      "videos": [
-        {
-          "id": "67601fae8eb48e4f74e62119",
-          "title": "Fire Effects"
-        },
-        {
-          "id": "67601faf8eb48e4f74e6211a",
-          "title": "Water Effects"
-        },
-        {
-          "id": "67601faf8eb48e4f74e6211b",
-          "title": "Smoke Effects"
-        },
-        {
-          "id": "67601fb08eb48e4f74e6211c",
-          "title": "Light Effects"
-        },
-        {
-          "id": "67601fb08eb48e4f74e6211d",
-          "title": "Particle Effects"
-        },
-        {
-          "id": "67601fb18eb48e4f74e6211e",
-          "title": "Weather Effects"
-        },
-        {
-          "id": "67601fb18eb48e4f74e6211f",
-          "title": "Energy Effects"
-        },
-        {
-          "id": "67601fb28eb48e4f74e62120",
-          "title": "Texture Effects"
-        },
-        {
-          "id": "67601fb28eb48e4f74e62121",
-          "title": "3D Effects"
-        },
-        {
-          "id": "67601fb38eb48e4f74e62122",
-          "title": "Liquid Effects"
-        },
-        {
-          "id": "67601fb38eb48e4f74e62123",
-          "title": "Glass Effects"
-        },
-        {
-          "id": "67601fb48eb48e4f74e62124",
-          "title": "Metal Effects"
-        },
-        {
-          "id": "67601fb48eb48e4f74e62125",
-          "title": "Space Effects"
-        },
-        {
-          "id": "67601fb58eb48e4f74e62126",
-          "title": "Abstract Effects"
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "title": "Advanced Tools & Techniques",
-      "description": "Master professional-level tools",
-      "videos": [
-        {
-          "id": "67601fb58eb48e4f74e62127",
-          "title": "Advanced Pen Tool"
-        },
-        {
-          "id": "67601fb68eb48e4f74e62128",
-          "title": "Complex Selections"
-        },
-        {
-          "id": "67601fb68eb48e4f74e62129",
-          "title": "Advanced Brushes"
-        },
-        {
-          "id": "67601fb78eb48e4f74e6212a",
-          "title": "Channel Operations"
-        },
-        {
-          "id": "67601fb78eb48e4f74e6212b",
-          "title": "Advanced Filters"
-        },
-        {
-          "id": "67601fb88eb48e4f74e6212c",
-          "title": "Custom Brushes"
-        },
-        {
-          "id": "67601fb88eb48e4f74e6212d",
-          "title": "Advanced Paths"
-        },
-        {
-          "id": "67601fb98eb48e4f74e6212e",
-          "title": "Complex Masks"
-        },
-        {
-          "id": "67601fb98eb48e4f74e6212f",
-          "title": "Advanced Blending"
-        },
-        {
-          "id": "67601fba8eb48e4f74e62130",
-          "title": "Smart Objects"
-        },
-        {
-          "id": "67601fba8eb48e4f74e62131",
-          "title": "Advanced RAW"
-        },
-        {
-          "id": "67601fbb8eb48e4f74e62132",
-          "title": "Custom Actions"
-        },
-        {
-          "id": "67601fbb8eb48e4f74e62133",
-          "title": "Advanced Scripts"
-        },
-        {
-          "id": "67601fbc8eb48e4f74e62134",
-          "title": "Plugin Development"
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "title": "Project Workshop",
-      "description": "Real-world projects and applications",
-      "videos": [
-        {
-          "id": "67601fbc8eb48e4f74e62135",
-          "title": "Portfolio Project"
-        },
-        {
-          "id": "67601fbd8eb48e4f74e62136",
-          "title": "Client Project"
-        },
-        {
-          "id": "67601fbd8eb48e4f74e62137",
-          "title": "Magazine Cover"
-        },
-        {
-          "id": "67601fbe8eb48e4f74e62138",
-          "title": "Product Campaign"
-        },
-        {
-          "id": "67601fbe8eb48e4f74e62139",
-          "title": "Brand Identity"
-        },
-        {
-          "id": "67601fbf8eb48e4f74e6213a",
-          "title": "Wedding Album"
-        },
-        {
-          "id": "67601fbf8eb48e4f74e6213b",
-          "title": "Fashion Lookbook"
-        },
-        {
-          "id": "67601fc08eb48e4f74e6213c",
-          "title": "Real Estate Photos"
-        },
-        {
-          "id": "67601fc08eb48e4f74e6213d",
-          "title": "Restaurant Menu"
-        },
-        {
-          "id": "67601fc18eb48e4f74e6213e",
-          "title": "Event Photography"
-        },
-        {
-          "id": "67601fc18eb48e4f74e6213f",
-          "title": "Sports Photography"
-        },
-        {
-          "id": "67601fc28eb48e4f74e62140",
-          "title": "Travel Photography"
-        },
-        {
-          "id": "67601fc28eb48e4f74e62141",
-          "title": "Fine Art Project"
-        },
-        {
-          "id": "67601fc38eb48e4f74e62142",
-          "title": "Final Portfolio"
-        }
+        "676e26d3f6424f38826d510c",
+        "67694b26f6424f38826d4f8a",
+        "67694b1a872e476c53537f70",
+        "67694b10872e476c53537f6b",
+        "67601f67183e93cba5f0fbb0",
+        "67601f628eb48e4f74e6208a",
+        "67602008183e93cba5f0fbb8",
+        "67601f6a8eb48e4f74e62090"
       ]
     }
   ]

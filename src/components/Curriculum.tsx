@@ -1,10 +1,13 @@
-import { useEffect, useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { CurriculumVideos } from "@/components/CurriculumVideos";
+import { Video as allVideos, VideosResponse } from "@/types";
+import { fetchVideos } from '@/hooks/apiHooks';
+import { ChevronDown, ChevronRight } from 'lucide-react';
+import LoadingSpinner from './LoadingSpinner';
 
-type Video = {
-  id: string;
-  title: string;
-}
+const indexId = process.env.NEXT_PUBLIC_INDEX_ID;
+
+type Video = string;
 
 type CurriculumSection = {
   id: number;
@@ -20,7 +23,6 @@ type CurriculumData = {
 };
 
 type Props = {
-  videos: Video[];
   summaryResults?: {
     [key: string]: {
       summary: string;
@@ -35,38 +37,51 @@ type Props = {
   };
 };
 
-// VideoSummary 타입 추가
-type VideoSummary = {
-  summary: string;
-  chapters: {
-    chapter_number: number;
-    start: number;
-    end: number;
-    chapter_title: string;
-    chapter_summary: string;
-  }[];
-};
 
-type ProcessedVideo = Video & {
-  summary: string;
-  chapters: {
-    chapter_number: number;
-    start: number;
-    end: number;
-    chapter_title: string;
-    chapter_summary: string;
-  }[];
-};
-
-type ProcessedSection = Omit<CurriculumSection, 'videos'> & {
-  videos: ProcessedVideo[];
-};
-
-export function Curriculum({ summaryResults }: Props) {
+export function Curriculum({ summaryResults }: Omit<Props, 'videos'>) {
   const [curriculum, setCurriculum] = useState<CurriculumData | null>(null);
-  console.log("🚀 > Curriculum > curriculum=", curriculum)
-  const [flattenedSections, setFlattenedSections] = useState<{ count: number; sections: CurriculumSection[] }>({ count: 0, sections: [] });
-  console.log("🚀 > Curriculum > flattenedSections=", flattenedSections)
+  const [allFetchedVideos, setAllFetchedVideos] = useState<allVideos[]>([]);
+  const [expandedSections, setExpandedSections] = useState<Set<number>>(new Set());
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+
+  useEffect(() => {
+    const loadVideos = async () => {
+      if (!hasMore || isLoading) return;
+
+      try {
+        setIsLoading(true);
+        const response = await fetchVideos(page, indexId || '');
+
+        setAllFetchedVideos(prev => [...prev, ...response.data]);
+        setHasMore(response.page_info?.page < response.page_info?.total_page);
+        setPage(prev => prev + 1);
+      } catch (err) {
+        setError(err as Error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadVideos();
+  }, [page]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 1000 &&
+        hasMore &&
+        !isLoading
+      ) {
+        setPage(prev => prev + 1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hasMore, isLoading]);
 
   // curriculum 로딩 디버깅
   useEffect(() => {
@@ -74,107 +89,49 @@ export function Curriculum({ summaryResults }: Props) {
     import('@/data/curriculum.json').then(m => {
       console.log('Curriculum loaded successfully:', m.default);
       console.log('Number of sections:', m.default.sections.length);
-      console.log('First section:', m.default.sections[0]);
+      m.default.sections.forEach((section, index) => {
+        console.log(`Section ${index + 1}:`, section);
+      });
       setCurriculum(m.default);
     }).catch(error => {
       console.error('Failed to load curriculum:', error);
     });
   }, []);
 
-  const findVideoForSection = useCallback((videoId: string, summaries: Record<string, VideoSummary>) => {
-    if (!curriculum) {
-      console.error('Curriculum is null in findVideoForSection');
-      return null;
-    }
-
-    console.log('Finding video details for:', videoId);
-
-    // 비디오 ID가 summaries에 있는지 먼저 확인
-    if (!summaries[videoId]) {
-      console.warn('Video summary not found:', videoId);
-      return null;
-    }
-
-    // curriculum에서 비디오 찾기
-    const curriculumVideo = curriculum.sections.flatMap(section =>
-      section.videos || []
-    ).find(v => v?.id === videoId);
-
-    if (!curriculumVideo) {
-      console.warn('Video not found in curriculum:', videoId);
-      return null;
-    }
-
-    // 두 정보를 합쳐서 반환
-    const result = {
-      ...curriculumVideo,
-      summary: summaries[videoId].summary,
-      chapters: summaries[videoId].chapters
-    };
-
-    console.log('Successfully combined video data for:', videoId);
-    return result;
-  }, [curriculum]);
-
-  const processSections = useCallback(() => {
-    if (!curriculum?.sections) {
-      console.warn('No curriculum sections available');
-      return;
-    }
-
-    console.log('Processing sections...');
-
-    const processNestedSections = (sections: CurriculumSection[]): ProcessedSection[] => {
-      return sections.map(section => {
-        console.log(`Processing section ${section.id}:`, section.title);
-
-        if (!section || !section.videos) {
-          console.warn('Invalid section data:', section);
-          return null;
-        }
-
-        // 각 비디오에 대해 summary 정보 추가
-        const processedVideos = section.videos.map(video => {
-          // summaryResults가 객체이므로 직접 접근
-          const videoSummary = summaryResults?.[video.id];
-
-          return {
-            ...video,
-            summary: videoSummary?.summary || '',
-            chapters: videoSummary?.chapters || []
-          };
-        });
-
-        return {
-          ...section,
-          videos: processedVideos
-        };
-      }).filter(Boolean) as ProcessedSection[];
-    };
-
-    const processedSections = processNestedSections(curriculum.sections);
-    console.log('Final processed sections:', processedSections.length);
-    setFlattenedSections({
-      count: processedSections.length,
-      sections: processedSections
-    });
-  }, [curriculum, summaryResults]);
-
-  useEffect(() => {
-    processSections();
-  }, [processSections]);
 
   // Render section videos
   const renderSectionVideos = useCallback((section: CurriculumSection) => {
-    if (!section?.id || !section.title || !Array.isArray(section.videos)) return null;
+    console.log('Rendering section:', section);
+    if (!section?.id || !section.title || !Array.isArray(section.videos)) {
+      console.log('Invalid section data:', section);
+      return null;
+    }
 
-    const sectionVideos = section.videos.filter((video): video is Video => {
-      if (!video || !video.id) {
-        console.log(`Invalid video in section ${section.id}:`, video);
-        return false;
-      }
-      return true;
-    });
+    const sectionVideos = section.videos
+      .filter(videoId => {
+        if (!videoId) {
+          console.log(`Invalid video ID in section ${section.id}:`, videoId);
+          return false;
+        }
+        // 해당 섹션의 비디오 ID와 일치하는 비디오만 필터링
+        const found = allFetchedVideos.find(v => v._id === videoId);
+        console.log(`Video ${videoId} found:`, !!found);
+        return !!found;
+      })
+      .map(videoId => {
+        const originalVideo = allFetchedVideos.find(v => v._id === videoId);
+        if (!originalVideo) {
+          console.log(`Video not found for ID: ${videoId}`);
+          return null;
+        }
+        return {
+          id: videoId,
+          title: originalVideo?.system_metadata?.filename || videoId,
+          summary: summaryResults?.[videoId]?.summary || '',
+          chapters: summaryResults?.[videoId]?.chapters || []
+        };
+      })
+      .filter(Boolean); // null 값 제거
 
     if (sectionVideos.length === 0) {
       console.debug(`No videos found for section ${section.id}: ${section.title}`);
@@ -183,21 +140,87 @@ export function Curriculum({ summaryResults }: Props) {
 
     return (
       <div key={section.id} className="section-videos">
-        <h3>{section.title}</h3>
-        <CurriculumVideos videos={sectionVideos} summaryResults={summaryResults} />
+        <CurriculumVideos videos={sectionVideos}/>
       </div>
     );
-  }, [summaryResults]);
+  }, [summaryResults, allFetchedVideos]);
+
+  // 섹션 토글 핸들러 추가
+  const toggleSection = (sectionId: number) => {
+    setExpandedSections(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(sectionId)) {
+        newSet.delete(sectionId);
+      } else {
+        newSet.add(sectionId);
+      }
+      return newSet;
+    });
+  };
+
+  if (isLoading && allFetchedVideos.length === 0) return <div>Loading videos...</div>;
+  if (error) return <div>Error loading videos: {error.message}</div>;
 
   return (
     <div className="curriculum-videos">
-      {flattenedSections.sections.map(section => (
-        <div key={section.id} className="section-container">
-          <h2 className="section-title">{section.title}</h2>
-          <p className="section-description">{section.description}</p>
-          {renderSectionVideos(section)}
-        </div>
-      ))}
+      {curriculum?.sections.map((section, index) => {
+        const sectionVideoCount = section.videos.length +
+          (section.sections?.reduce((acc, sub) => acc + sub.videos.length, 0) || 0);
+        const isExpanded = expandedSections.has(section.id);
+
+        return (
+          <div key={section.id} className="section-container p-3 bg-gray-50 rounded-lg">
+            <div
+              className="flex items-center cursor-pointer"
+              onClick={() => toggleSection(section.id)}
+            >
+              {isExpanded ? (
+                <ChevronDown className="w-6 h-6 mr-2" />
+              ) : (
+                <ChevronRight className="w-6 h-6 mr-2" />
+              )}
+              <h2 className="section-title text-2xl font-bold text-gray-800 mb-2">
+                {section.title} <span className="text-gray-500 text-lg">({sectionVideoCount} videos)</span>
+              </h2>
+            </div>
+            {isExpanded && (
+              <>
+                <p className="section-description text-gray-600 mb-4">{section.description}</p>
+                {section.sections?.map(subSection => {
+                  const subSectionVideoCount = subSection.videos.length;
+                  const isSubExpanded = expandedSections.has(subSection.id);
+
+                  return (
+                    <div key={subSection.id} className="subsection-container ml-4 mb-3 p-4 bg-white rounded-lg">
+                      <div
+                        className="flex items-center cursor-pointer"
+                        onClick={() => toggleSection(subSection.id)}
+                      >
+                        {isSubExpanded ? (
+                          <ChevronDown className="w-5 h-5 mr-2" />
+                        ) : (
+                          <ChevronRight className="w-5 h-5 mr-2" />
+                        )}
+                        <h3 className="subsection-title text-xl font-semibold text-gray-700 mb-2">
+                          {subSection.title} <span className="text-gray-500">({subSectionVideoCount} videos)</span>
+                        </h3>
+                      </div>
+                      {isSubExpanded && (
+                        <>
+                          <p className="subsection-description text-gray-600 mb-3">{subSection.description}</p>
+                          {renderSectionVideos(subSection)}
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
+                {renderSectionVideos(section)}
+              </>
+            )}
+          </div>
+        );
+      })}
+      {isLoading && <LoadingSpinner />}
     </div>
   );
 }

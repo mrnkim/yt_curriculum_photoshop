@@ -7,7 +7,8 @@ import { IndexDetails, VideosResponse } from "@/types";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { PlayerProvider } from "@/contexts/PlayerContext";
-
+import { fetchVideos } from '@/hooks/apiHooks';
+import LoadingSpinner from "@/components/LoadingSpinner";
 const indexId = process.env.NEXT_PUBLIC_INDEX_ID;
 
 type SummaryData = {
@@ -49,12 +50,12 @@ export default function Home() {
     enabled: !!indexId,
   });
 
-  const fetchVideos = async ({ pageParam = 1 }) => {
-    const response = await fetch(
-      `/api/getVideos?indexId=${indexId}&page=${pageParam}`
-    );
-    return response.json();
-  };
+  // const fetchVideos = async ({ pageParam = 1 }) => {
+  //   const response = await fetch(
+  //     `/api/getVideos?indexId=${indexId}&page=${pageParam}`
+  //   );
+  //   return response.json();
+  // };
 
   const {
     data,
@@ -63,7 +64,7 @@ export default function Home() {
     isFetchingNextPage,
   } = useInfiniteQuery<VideosResponse, Error>({
     queryKey: ["videos", indexId],
-    queryFn: ({ pageParam = 1 }) => fetchVideos({ pageParam: pageParam as number }),
+    queryFn: ({ pageParam }) => fetchVideos(pageParam as number, indexId || ''),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
       if (lastPage.page_info?.page < lastPage.page_info?.total_page) {
@@ -88,6 +89,7 @@ export default function Home() {
 
   // 모든 페이지의 비디오 데이터를 하나의 배열로 합치기
   const allVideos = data?.pages.flatMap((page) => page.data) ?? [];
+  console.log("🚀 > Home > allVideos=", allVideos)
 
   return (
     <PlayerProvider>
@@ -107,8 +109,8 @@ export default function Home() {
               <button
                 className={`px-4 py-2 rounded-lg ${
                   activeTab === "all"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-700"
+                    ? "bg-blue-500 font-bold text-black"
+                    : "bg-gray-200 text-black"
                 }`}
                 onClick={() => setActiveTab("all")}
               >
@@ -117,8 +119,8 @@ export default function Home() {
               <button
                 className={`px-4 py-2 rounded-lg ${
                   activeTab === "curriculum"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-700"
+                    ? "bg-blue-500 font-bold text-black"
+                    : "bg-gray-200 text-black"
                 }`}
                 onClick={() => setActiveTab("curriculum")}
               >
@@ -140,7 +142,7 @@ export default function Home() {
 
             <div ref={ref} className="w-full py-4 text-center">
               {isFetchingNextPage && (
-                <div className="text-gray-500">Loading more videos...</div>
+                <LoadingSpinner />
               )}
             </div>
           </div>

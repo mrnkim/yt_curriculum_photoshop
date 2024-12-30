@@ -27,7 +27,8 @@ export async function GET(req: Request) {
   const options = {
     method: "GET",
     headers: {
-      "Content-Type": "multipart/form-data",
+      "Accept": "application/json",
+      "Content-Type": "application/json",
       "x-api-key": `${API_KEY}`,
     },
   };
